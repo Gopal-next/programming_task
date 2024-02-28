@@ -25,6 +25,6 @@ In this we have mysql.connector to connect between python and mysql
 - Now, I have created a table named as student_id, first_name, last_name, age and grade.
 - After that i inserted a record in the table named as student as (1, 'Alice', 'Smith', 18,95, 5).
 - Now i have upadted the value of grade where first_name is "Alice".
-- Then i deleted the record where lasT_name as smith.
+- Then i deleted the record where last_name as smith.
 - And feteched the student record.
 - At last i closes the cursor and database connection.

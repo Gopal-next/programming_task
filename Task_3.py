@@ -13,39 +13,39 @@ Fetches and displays all student records from the "students" table. '''
 
 
 import mysql.connector
-# mydb = mysql.connector.connect(host='localhost', password='pass123', user='root',database="mydatabase")
-mydb = mysql.connector.connect(host='localhost', password='pass123', user='root')
+mydb = mysql.connector.connect(host='localhost', password='Gopal123@#12345', user='root',database="mydatabase")
+# mydb = mysql.connector.connect(host='localhost', password='Gopal123@#12345', user='root')
 
 conn = mydb.cursor()
 
 
-# # creating database
-# # conn.execute("create database mydatabase")
+# # # creating database
+conn.execute("create database mydatabase")
 
 
-# creating table
+# # creating table
 conn.execute("create table student(student_id int, first_name varchar(20), last_name varchar(10), age int, grade float)")
 
-# inserting new student
+# # inserting new student
 insert_query = "insert into student (student_id, first_name, last_name, age, grade) values (%s, %s, %s, %s, %s)"
 insert_value = (1,"Alice", "Smith", 18, 95.5)
 
 conn.execute(insert_query,insert_value)
-conn.commit()
+mydb.commit()
 
-# updating the grade of alice
+# # updating the grade of alice
 update_query = "update student set grade = %s where first_name = %s"
 set_value = (97.0,"Alice")
 conn.execute(update_query,set_value)
-conn.commit()
+mydb.commit()
 
-# Delete student with last_name
+# # Delete student with last_name
 delete_student = "Delete student where last_name = %s"
 delete_data = ("Smith",)
 conn.execute(delete_student, delete_data)
-conn.commit()
+mydb.commit()
 
-# fetches and display all student record
+# # fetches and display all student record
 conn.execute('Select * from student')
 conn.fetchall()
 

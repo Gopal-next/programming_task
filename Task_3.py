@@ -20,13 +20,13 @@ conn = mydb.cursor()
 
 
 # # # creating database
-conn.execute("create database mydatabase")
+# conn.execute("create database mydatabase")
 
 
 # # creating table
 conn.execute("create table student(student_id int, first_name varchar(20), last_name varchar(10), age int, grade float)")
 
-# # inserting new student
+# inserting new student
 insert_query = "insert into student (student_id, first_name, last_name, age, grade) values (%s, %s, %s, %s, %s)"
 insert_value = (1,"Alice", "Smith", 18, 95.5)
 
@@ -39,13 +39,13 @@ set_value = (97.0,"Alice")
 conn.execute(update_query,set_value)
 mydb.commit()
 
-# # Delete student with last_name
-delete_student = "Delete student where last_name = %s"
+# # # Delete student with last_name
+delete_student = "Delete from student where last_name = %s"
 delete_data = ("Smith",)
 conn.execute(delete_student, delete_data)
 mydb.commit()
 
-# # fetches and display all student record
+# # # fetches and display all student record
 conn.execute('Select * from student')
 conn.fetchall()
 
